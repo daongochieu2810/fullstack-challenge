@@ -10,6 +10,7 @@
 ### Challenge 2:
 - Run `node challenge_2.js`
 - Go to `http://localhost:4000/` or `http://localhost:4000/about` to confirm the server's response
+- `Ctrl + C` to stop the server
 
 ### Challenge 3:
 - `cd challenge_3/`
