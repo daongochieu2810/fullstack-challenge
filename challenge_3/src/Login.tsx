@@ -6,7 +6,6 @@ const Login: React.FC = () => {
   const [error, setError] = useState('');
 
   const validateEmail = (email: string): boolean => {
-    // Basic email format validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
@@ -19,47 +18,67 @@ const Login: React.FC = () => {
     } else if (password.length < 8) {
       setError('Password should be at least 8 characters');
     } else {
-      // Simulate successful login
       setError('');
       alert('Login successful!');
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-4 border shadow-lg rounded-md">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
-      {error && <div className="text-red-500 mb-4">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-600">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-            required
-          />
+    <div className="flex h-screen bg-gray-900 text-white flex-wrap">
+      <div
+        className="w-full lg:w-1/2 p-12 flex items-center justify-center bg-gradient-to-r from-red-600 to-pink-600"
+      >
+        <div className="text-6xl font-bold">
+          <span className="text-black">HIEU</span>
+          <br />
+          <span className="text-white">DAO NGOC</span>
         </div>
-        <div className="mb-4">
-          <label htmlFor="password" className="block text-sm font-medium text-gray-600">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-            required
-          />
-        </div>
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded-md">
-          Login
-        </button>
-      </form>
+      </div>
+
+      {/* Right Half - Login Form */}
+      <div className="w-full lg:w-1/2 p-12 bg-gray-900">
+        <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
+          <h2 className="text-3xl font-bold mb-6">Log In</h2>
+          <div className="mb-4">
+            <label className="block text-gray-400 text-sm font-semibold mb-2" htmlFor="email">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-3 bg-gray-800 rounded focus:outline-none focus:ring focus:border-blue-500"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-gray-400 text-sm font-semibold mb-2" htmlFor="password">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-3 bg-gray-800 rounded focus:outline-none focus:ring focus:border-blue-500"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold py-3 rounded focus:outline-none focus:ring focus:border-blue-500"
+          >
+            Sign In
+          </button>
+          <p className="mt-4 text-center text-gray-400 text-sm">
+            Don't have an account? <a href="#" className="text-blue-500">Sign up</a>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

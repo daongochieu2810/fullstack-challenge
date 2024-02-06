@@ -27,7 +27,6 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-
 // Prompt user for input
 rl.question('Enter a number (n): ', (input) => {
     const n = parseInt(input);
@@ -44,6 +43,5 @@ rl.question('Enter a number (n): ', (input) => {
     const resultFormula = formulaSum(n);
     console.log(`Task 3: ${resultFormula}`);
 
-    // Close the interface
     rl.close();
 });
